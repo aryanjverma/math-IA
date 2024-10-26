@@ -1,50 +1,79 @@
-import random
 import time
-import matplotlib.pyplot as plt
-import numpy as np
-averageIterations = 100
-def findNumber(size):
-    number = random.randint(1,size)
-    guess = round(size/2)
-    movement = guess
-    while guess != number:
-        
-        if number > guess:
-            guess = round(guess + movement/2)
-            movement /= 2
-        elif number < guess:
-            guess = round(guess - movement/2)
-            movement /= 2
-    
-    return guess
-def iterate(size):
-    for _ in range(size):
+'''
+def count(n):
+    for _ in range(n):
         pass
     return
-def averageOutput(function, input):
-    sum = 0
-    for _ in range(averageIterations):
-        sum += function(input)
-    return sum/averageIterations
-def calculateTime(function, input):
-    startTime = time.time()
-    function(input)
-    endTime = time.time()
-    return endTime - startTime
-def doubleIt(number):
-    return number * 2
-x = []
-y = []
-for someSize in range(100):
-    realSize = someSize * 100
-    x.append(realSize)
-    y.append((calculateTime(iterate,realSize)))
-print(x)
-print(y)
-plt.scatter(x,y)
 
-plt.title('Scatter Plot')
-plt.xlabel('Input Size')
-plt.ylabel('Runtime(seconds)')
+def log(n):
+    count = 0
+    while n > 1:
+        count += 1
+        n /= 1.01
+    return count
 
-plt.show()
+def selectionSort(n):
+    for _ in range(n):
+        for _ in range(n):
+            pass
+    return
+'''
+def fib(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fib(n-1) + fib(n-2)
+
+def calcTime(func, n):
+    start = time.time()
+    func(n)
+    end = time.time()
+    return end-start
+inputs = []
+runtimes = []
+'''
+for i in range(30):
+    l = (i+1) * (10 ** 5)
+    inputs.append(l)
+    avg = 0 
+    for _ in range(10):
+        avg += calcTime(count, l)
+    runtimes.append(avg/10)
+print(inputs)
+print(runtimes)
+
+for i in range(30):
+    l = (i+1) * (10 ** 50)
+    inputs.append(l)
+    avg = 0 
+    for _ in range(10):
+        avg += calcTime(log, l)
+    runtimes.append(avg/10)
+print(inputs)
+print(runtimes)
+
+for i in range(60):
+    l = (i+1) * (10 ** 2)
+    inputs.append(l)
+    avg = 0 
+    for _ in range(20):
+        avg += calcTime(selectionSort, l)
+    runtimes.append(avg/20)
+print(inputs)
+print(runtimes)
+'''
+for i in range(20):
+    l = (i+1) * 4
+    inputs.append(l)
+    a = calcTime(fib, l)
+    print(a)
+    runtimes.append(a)
+    
+print(inputs)
+print(runtimes)
+
+
+
+
