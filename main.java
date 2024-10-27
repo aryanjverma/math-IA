@@ -67,7 +67,7 @@ public class TimingAnalysis {
         /*
         // Uncomment and test `count` function
         for (int i = 0; i < 30; i++) {
-            int l = (i + 1) * 100_000;
+            int l = (i + 1) * 1_000_000;
             inputs.add(l);
             double avg = 0;
             for (int j = 0; j < 10; j++) {
